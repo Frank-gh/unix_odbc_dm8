@@ -1,0 +1,16 @@
+cmake_minimum_required (VERSION 3.11)
+project (otlodbc)
+
+set(CMAKE_CXX_FLAGS "-Wall")
+# set(CMAKE_CXX_FLAGS "-Wall -DOTL_ODBC_UNIX")
+set(CMAKE_CXX_FLAGS_DEBUG "-g3")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+set(CMAKE_BUILD_TYPE Debug)
+# set(CMAKE_CXX_COMPILER "/home/frank/software/arm/bin/arm-none-linux-gnueabi-g++")
+# SET(CMAKE_C_COMPILER "/home/frank/software/arm/bin/arm-none-linux-gnueabi-gcc")
+include_directories(./)
+include_directories(/usr/local/include)
+
+add_executable(otlodbc otlodbc.cpp)
+link_directories("/home/frank/dmdbms/bin")
+target_link_libraries(otlodbc /home/frank/dmdbms/bin/libdodbc.so)
